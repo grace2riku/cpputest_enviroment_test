@@ -1,7 +1,3 @@
-#project (tdd_test)
-#include_directories(${PROJECT_SOURCE_DIR}/include/hello/)
-
-# Memo: It seems unable to use sub modules as library(.so, .a) in CppUTest
 file(GLOB SOURCES 
 	"./*.c" "./*.cpp"
 	"hello/*.c" "hello/*.cpp"
@@ -10,7 +6,6 @@ file(GLOB SOURCES
 add_executable(${PROJECT_NAME} ${SOURCES})
 target_include_directories(${PROJECT_NAME} PUBLIC ${CMAKE_CURRENT_LIST_DIR} ${PROJECT_SOURCE_DIR}/include)
 
-
 # include CppUTest headers
 include_directories($ENV{CPPUTEST_HOME}/include)
 
@@ -18,7 +13,6 @@ include_directories($ENV{CPPUTEST_HOME}/include)
 add_library(imp_cpputest STATIC IMPORTED)
 set_property(TARGET imp_cpputest PROPERTY
              IMPORTED_LOCATION $ENV{CPPUTEST_HOME}/lib/libCppUTest.a)
-#             IMPORTED_LOCATION $ENV{CPPUTEST_HOME}/src/CppUTest/libCppUTest.a)
 
 add_library(imp_libCppUTestExt STATIC IMPORTED)
 set_property(TARGET imp_libCppUTestExt PROPERTY
