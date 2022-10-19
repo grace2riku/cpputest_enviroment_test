@@ -1,9 +1,4 @@
-#project (tdd_test)
-
 file(GLOB SOURCES "./*.c" "./*.cpp")
-
-#include_directories(${PROJECT_SOURCE_DIR}/include/hello)
 
 add_library(hello STATIC ${SOURCES})
 target_include_directories(hello PUBLIC ${CMAKE_CURRENT_LIST_DIR} ${PROJECT_SOURCE_DIR}/include/hello)
-
